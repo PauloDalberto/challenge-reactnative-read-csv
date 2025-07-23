@@ -1,4 +1,4 @@
-export type Winner = {
+export interface Winner {
   year: number;
   title: string;
   studios: string;
