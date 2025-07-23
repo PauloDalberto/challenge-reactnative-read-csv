@@ -1,8 +1,6 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { Image } from 'react-native';
-
 export default function Dashboard() {
   const { filename } = useLocalSearchParams();
 
