@@ -1,15 +1,14 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { BackHeader } from "@/src/components/utils/backHeader";
+
 export default function Dashboard() {
   const { filename } = useLocalSearchParams();
 
   return (
     <View className="flex h-full">
-      <View className="flex-row items-center gap-4">
-        <AntDesign name="arrowleft" size={32} color="black" onPress={() => router.back()}/>
-        <Text className="font-bold text-2xl">Dashboard</Text>
-      </View>
+      <BackHeader title="Dashboard"/>
       
       <Text className="mt-4 text-lg font-semibold">
         Arquivo selecionado: {filename}
@@ -20,7 +19,7 @@ export default function Dashboard() {
       </Text>
 
       <View className="mt-4 flex gap-2">
-        <TouchableOpacity className="w-full h-40 rounded bg-black">
+        <TouchableOpacity onPress={() => router.push('/pages/Winners')} className="w-full h-40 rounded bg-black">
           <Image 
             source={require('../../assets/images/movies.jpg')}
             className="w-full h-full rounded opacity-30"
@@ -32,7 +31,7 @@ export default function Dashboard() {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity className="w-full h-40 rounded bg-black">
+        <TouchableOpacity onPress={() => router.push('/pages/Intervals')} className="w-full h-40 rounded bg-black">
           <Image 
             source={require('../../assets/images/oscar.jpg')}
             className="w-full h-full rounded opacity-30"
