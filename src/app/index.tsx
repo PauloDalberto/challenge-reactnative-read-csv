@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View, Image } from "react-native";
 import { getListCsv, selectCsv } from "../services/csv";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 
 export default function Index(){
   const [loading, setLoading] = useState(false)
   const [listCsv, setListCsv]= useState([])
-
-  const router = useRouter();
   
   useEffect(() => {
     async function getCsv(){
@@ -53,7 +51,7 @@ export default function Index(){
           <TouchableOpacity 
             onPress={() => handleCsv(item)} 
             key={index} 
-            className="border rounded-lg w-full h-20 border-gray-600 bg-gray-300"
+            className="border rounded-lg w-full h-20 border-gray-600 "
           >
             <Image 
               source={require('../assets/images/database.jpg')}
