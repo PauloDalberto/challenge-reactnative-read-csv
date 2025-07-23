@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
-import { getListCsv } from "../services/csv";
+import { getListCsv, selectCsv } from "../services/csv";
+import { useRouter } from "expo-router";
 
 export default function Index(){
   const [loading, setLoading] = useState(false)
   const [listCsv, setListCsv]= useState([])
+
+  const router = useRouter();
   
   useEffect(() => {
     async function getCsv(){
@@ -25,6 +28,14 @@ export default function Index(){
 
   if (loading) return <ActivityIndicator size="large" />;
 
+  const handleCsv = async (filename: string) => {
+    await selectCsv(filename)
+    router.push({
+      pathname: "/pages/Dashboard",
+      params: { filename }
+    })
+  }
+
   return (
     <View className="flex items-center h-full gap-12">
       <Text>Worst Movie Wins</Text>
@@ -39,7 +50,11 @@ export default function Index(){
 
       <View className="flex gap-2 w-full">
         {listCsv.map((item, index) => (
-          <TouchableOpacity key={index} className="border rounded-lg w-full p-4 border-gray-600 bg-gray-50">
+          <TouchableOpacity 
+            onPress={() => handleCsv(item)} 
+            key={index} 
+            className="border rounded-lg w-full p-4 border-gray-600 bg-gray-50"
+          >
             <Text  className="text-center text-base">
               Selecionar csv: {item}
             </Text>
