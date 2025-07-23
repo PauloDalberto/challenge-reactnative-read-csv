@@ -18,9 +18,6 @@ export default function Intervals() {
 
   }, [])
 
-  const min = intervals?.min[0]
-  const max = intervals?.max[0]
-
   return (
     <View>
       <BackHeader title="Intervalos dos vencedores" />
@@ -31,13 +28,14 @@ export default function Intervals() {
 
       <CardIntervals 
         title="Menor Tempo:"
-        data={min}
+        data={intervals?.min}
         image={require("../../assets/images/primary.png")}
       />
 
       <CardIntervals 
         title="Maior Tempo:"
-        data={max}
+        data={intervals?.max}
+
         image={require("../../assets/images/second.png")}
       />
     </View>
