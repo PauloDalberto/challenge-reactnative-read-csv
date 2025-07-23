@@ -1,7 +1,26 @@
+import { Interval } from "@/src/@types/interval";
+import { CardIntervals } from "@/src/components/cards/cardIntervals";
 import { BackHeader } from "@/src/components/utils/backHeader";
-import { Text, View, Image } from "react-native";
+import { getIntervals } from "@/src/services/movies";
+import { useEffect, useState } from "react";
+import { Text, View } from "react-native";
 
 export default function Intervals() {
+  const [intervals, setIntervals] = useState<Interval | null>(null)
+
+  useEffect(() => {
+    const getInterval = async () => {
+      const data = await getIntervals()
+      setIntervals(data)
+    }
+
+    getInterval()
+
+  }, [])
+
+  const min = intervals?.min[0]
+  const max = intervals?.max[0]
+
   return (
     <View>
       <BackHeader title="Intervalos dos vencedores" />
@@ -10,37 +29,17 @@ export default function Intervals() {
         Aqui iremos mostrar o produtor com o maior e menor intervalo entre um título e outro!
       </Text>
 
-      <Text className="mt-4 font-bold text-2xl">Menor tempo:</Text>
-      <View className="mt-2 flex-row w-full rounded items-center justify-between">
-        <View className="flex-1 gap-1">
-          <Text className="font-semibold text-2xl">Produtor aqui</Text>
-          <Text className="text-xl">Primeira vitória: 1992</Text>
-          <Text className="text-xl">Segunda vitória: 1992</Text>
-          <Text className="text-xl">Intervalo entre vitórias: 2</Text>
-        </View>
+      <CardIntervals 
+        title="Menor Tempo:"
+        data={min}
+        image={require("../../assets/images/primary.png")}
+      />
 
-        <Image
-          source={require("../../assets/images/primary.png")}
-          className="w-32 h-32 rounded-xl"
-          resizeMode="cover"
-        />
-      </View>
-
-      <Text className="mt-8 font-bold text-2xl">Maior tempo:</Text>
-      <View className="mt-2 flex-row w-full rounded items-center justify-between">
-        <View className="flex-1 gap-1">
-          <Text className="font-semibold text-2xl">Produtor aqui</Text>
-          <Text className="text-xl">Primeira vitória: 1992</Text>
-          <Text className="text-xl">Segunda vitória: 1992</Text>
-          <Text className="text-xl">Intervalo entre vitórias: 2</Text>
-        </View>
-
-        <Image
-          source={require("../../assets/images/second.png")}
-          className="w-32 h-32 rounded-xl"
-          resizeMode="cover"
-        />
-      </View>
+      <CardIntervals 
+        title="Maior Tempo:"
+        data={max}
+        image={require("../../assets/images/second.png")}
+      />
     </View>
   );
 }
