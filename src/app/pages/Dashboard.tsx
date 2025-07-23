@@ -1,6 +1,5 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { BackHeader } from "@/src/components/utils/backHeader";
 
 export default function Dashboard() {
