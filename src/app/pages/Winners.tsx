@@ -16,9 +16,8 @@ export default function Winners(){
       try {
         const data = await getWinners();
         setWinners(data)
-      } catch (error) {
+      } catch {
         router.push('/pages/Error')
-        console.log("Error winners: ", error)
       } finally {
         setLoading(false);
       }

@@ -17,9 +17,8 @@ export default function Intervals() {
       try {
         const data = await getIntervals();
         setIntervals(data);
-      } catch (error) {
+      } catch {
         router.push('/pages/Error')
-        console.error("Error intervals:", error);
       } finally {
         setLoading(false);
       }
