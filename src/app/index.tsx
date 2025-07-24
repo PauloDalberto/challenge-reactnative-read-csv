@@ -6,7 +6,7 @@ import Loading from "../components/loading/loading";
 
 export default function Index(){
   const [loading, setLoading] = useState(false)
-  const [listCsv, setListCsv]= useState([])
+  const [listCsv, setListCsv]= useState<string[]>([])
   
   useEffect(() => {
     async function getCsv(){
