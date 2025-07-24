@@ -38,12 +38,8 @@ export default function Index(){
     <View className="flex items-center h-full ">
       <Text>Worst Movie Wins</Text>
 
-      <Text className="mt-12 font-bold text-2xl text-center">
-        Bem vindo aos vencedores do pior filme!
-      </Text>
-
-      <Text className="mt-8 text-2xl text-start">
-        Para começar, selecione qual csv voce deseja visualizar
+      <Text className="mt-8 text-2xl text-start font-semibold">
+        Para começar, selecione qual csv voce deseja visualizar:
       </Text>
 
       <View className="mt-3 flex gap-2 w-full">
