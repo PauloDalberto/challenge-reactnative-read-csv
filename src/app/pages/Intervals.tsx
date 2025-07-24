@@ -1,5 +1,6 @@
 import { Interval } from "@/src/@types/interval";
 import { CardIntervals } from "@/src/components/cards/cardIntervals";
+import Loading from "@/src/components/loading/loading";
 
 import { BackHeader } from "@/src/components/utils/backHeader";
 import { getIntervals } from "@/src/services/movies";
@@ -24,6 +25,8 @@ export default function Intervals() {
 
     getInterval();
   }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <View className="flex h-full">

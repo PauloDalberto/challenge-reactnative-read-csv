@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { CardWinners } from "@/src/components/cards/cardWinners";
 import { BackHeader } from "@/src/components/utils/backHeader";
+import Loading from "@/src/components/loading/loading";
 
 export default function Winners(){
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,8 @@ export default function Winners(){
     
     getWinner();
   }, [])
+
+  if (loading) return <Loading />;
 
   return (
     <FlatList

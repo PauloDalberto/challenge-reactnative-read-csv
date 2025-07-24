@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator, Text, TouchableOpacity, View, Image } from "react-native";
 import { getListCsv, selectCsv } from "../services/csv";
 import { router } from "expo-router";
+import Loading from "../components/loading/loading";
 
 export default function Index(){
   const [loading, setLoading] = useState(false)
@@ -24,7 +25,7 @@ export default function Index(){
     getCsv()
   }, [])
 
-  if (loading) return <ActivityIndicator size="large" />;
+  if (loading) return <Loading />;
 
   const handleCsv = async (filename: string) => {
     await selectCsv(filename)
