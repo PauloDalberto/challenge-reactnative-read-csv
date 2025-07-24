@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Text, TouchableOpacity, View, Image } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import { getListCsv, selectCsv } from "../services/csv";
 import { router } from "expo-router";
 import Loading from "../components/loading/loading";
@@ -14,9 +14,8 @@ export default function Index(){
         setLoading(true)
         const data = await getListCsv()
         setListCsv(data)
-      } catch (error) {
-          router.push('/pages/Error')
-         console.log("Erro ao buscar CSV:", JSON.stringify(error, null, 2));
+      } catch {
+        router.push('/pages/Error')
       } finally {
         setLoading(false)
       }

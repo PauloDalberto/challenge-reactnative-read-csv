@@ -1,6 +1,6 @@
 import { IntervalItem } from '@/src/@types/interval'
-import { CardIntervals } from './cardIntervals'
 import { render } from '@testing-library/react-native'
+import { CardIntervals } from '../components/cards/cardIntervals'
 
 const mockData: IntervalItem[] = [
   {
@@ -23,7 +23,7 @@ describe('CardIntervals component', () => {
       <CardIntervals
         title="Card Intervals"
         data={mockData}
-        image={require('../../assets/images/second.png')}
+        image={require('../assets/images/second.png')}
       />
     )
 
@@ -35,7 +35,7 @@ describe('CardIntervals component', () => {
       <CardIntervals
         title="Card Intervals"
         data={mockData}
-        image={require('../../assets/images/second.png')}
+        image={require('../assets/images/second.png')}
       />
     )
 
@@ -50,7 +50,7 @@ describe('CardIntervals component', () => {
       <CardIntervals
         title="Card Intervals"
         data={mockData}
-        image={require('../../assets/images/second.png')}
+        image={require('../assets/images/second.png')}
       />
     )
 

@@ -1,5 +1,5 @@
-import { CardDashboard } from './cardDashboard'
-import { render, fireEvent } from '@testing-library/react-native'
+import { fireEvent, render } from '@testing-library/react-native'
+import { CardDashboard } from '../components/cards/cardDashboard'
 
 describe("CardDashboard", () => {
   it("should render the card dashboard and display the text", () => {
@@ -8,7 +8,7 @@ describe("CardDashboard", () => {
       <CardDashboard
         onPress={functionMock}
         text='Card Dashboard'
-        image={require('../../assets/images/oscar.jpg')}
+        image={require('../assets/images/oscar.jpg')}
       />
     )
 
@@ -21,7 +21,7 @@ describe("CardDashboard", () => {
       <CardDashboard
         onPress={functionMock}
         text='Card Dashboard'
-        image={require('../../assets/images/oscar.jpg')}
+        image={require('../assets/images/oscar.jpg')}
       />
     )
 

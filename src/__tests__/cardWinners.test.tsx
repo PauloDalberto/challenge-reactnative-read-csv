@@ -1,6 +1,6 @@
-import React from 'react';
 import { render } from '@testing-library/react-native';
-import { CardWinners } from './cardWinners';
+import React from 'react';
+import { CardWinners } from '../components/cards/cardWinners';
 
 jest.mock('@expo/vector-icons', () => ({
   Ionicons: () => null,
