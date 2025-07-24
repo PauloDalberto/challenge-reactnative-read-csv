@@ -1,6 +1,7 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text } from "react-native";
 import { BackHeader } from "@/src/components/utils/backHeader";
+import { CardDashboard } from "@/src/components/cards/cardDashboard";
 
 export default function Dashboard() {
   const { filename } = useLocalSearchParams();
@@ -18,29 +19,17 @@ export default function Dashboard() {
       </Text>
 
       <View className="mt-4 flex gap-2">
-        <TouchableOpacity onPress={() => router.push('/pages/Winners')} className="w-full h-40 rounded bg-black">
-          <Image 
-            source={require('../../assets/images/movies.jpg')}
-            className="w-full h-full rounded opacity-30"
-            resizeMode="cover"
-          />
+        <CardDashboard 
+          text="VER LISTA DE FILMES GANHADORES!"
+          image={require('../../assets/images/movies.jpg')}
+          onPress={() => router.push('/pages/Winners')}
+        />
 
-          <View className="absolute inset-0 justify-center items-center">
-            <Text className="font-bold text-xl text-white">VER LISTA DE FILMES GANHADORES!</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => router.push('/pages/Intervals')} className="w-full h-40 rounded bg-black">
-          <Image 
-            source={require('../../assets/images/oscar.jpg')}
-            className="w-full h-full rounded opacity-30"
-            resizeMode="cover"
-          />
-
-          <View className="absolute inset-0 justify-center items-center">
-            <Text className="font-bold text-xl text-white">VER INTERVALO ENTRE GANHADORES!</Text>
-          </View>
-        </TouchableOpacity>
+        <CardDashboard 
+          text="VER INTERVALO ENTRE GANHADORES!"
+          image={require('../../assets/images/oscar.jpg')}
+          onPress={() => router.push('/pages/Intervals')}
+        />
       </View>
     </View>
   );
