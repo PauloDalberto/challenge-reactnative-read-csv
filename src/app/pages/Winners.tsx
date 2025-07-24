@@ -5,6 +5,7 @@ import { FlatList, Text, View } from "react-native";
 import { CardWinners } from "@/src/components/cards/cardWinners";
 import { BackHeader } from "@/src/components/utils/backHeader";
 import Loading from "@/src/components/loading/loading";
+import { router } from "expo-router";
 
 export default function Winners(){
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,7 @@ export default function Winners(){
         const data = await getWinners();
         setWinners(data)
       } catch (error) {
+        router.push('/pages/Error')
         console.log("Error winners: ", error)
       } finally {
         setLoading(false);

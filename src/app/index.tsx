@@ -14,8 +14,8 @@ export default function Index(){
         setLoading(true)
         const data = await getListCsv()
         setListCsv(data)
-
       } catch (error) {
+          router.push('/pages/Error')
          console.log("Erro ao buscar CSV:", JSON.stringify(error, null, 2));
       } finally {
         setLoading(false)

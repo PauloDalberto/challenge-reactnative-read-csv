@@ -4,6 +4,7 @@ import Loading from "@/src/components/loading/loading";
 
 import { BackHeader } from "@/src/components/utils/backHeader";
 import { getIntervals } from "@/src/services/movies";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 
@@ -17,6 +18,7 @@ export default function Intervals() {
         const data = await getIntervals();
         setIntervals(data);
       } catch (error) {
+        router.push('/pages/Error')
         console.error("Error intervals:", error);
       } finally {
         setLoading(false);
