@@ -6,14 +6,21 @@ import { CardWinners } from "@/src/components/cards/cardWinners";
 import { BackHeader } from "@/src/components/utils/backHeader";
 
 export default function Winners(){
+  const [loading, setLoading] = useState(true);
   const [winners, setWinners] = useState<Winner[]>([]);
 
   useEffect(() => {
     const getWinner = async () => {
-      const data = await getWinners();
-      setWinners(data)
+      try {
+        const data = await getWinners();
+        setWinners(data)
+      } catch (error) {
+        console.log("Error winners: ", error)
+      } finally {
+        setLoading(false);
+      }
     }
-
+    
     getWinner();
   }, [])
 
